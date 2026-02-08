@@ -1,0 +1,3 @@
+com.timo.ai.a2a.server.grpc.GrpcTransportMetadata
+com.timo.ai.a2a.server.jsonrpc.JSONRPCTransportMetadata
+com.timo.ai.a2a.server.rest.RestTransportMetadata

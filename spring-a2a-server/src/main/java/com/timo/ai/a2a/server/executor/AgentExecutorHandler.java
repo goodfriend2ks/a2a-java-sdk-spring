@@ -1,0 +1,39 @@
+package com.timo.ai.a2a.server.executor;
+
+import io.a2a.server.agentexecution.RequestContext;
+import io.a2a.spec.Message;
+import io.a2a.spec.Part;
+import io.a2a.spec.TextPart;
+
+/**
+ * Executes AI operations with A2A RequestContext for A2A agents.
+ * <p>
+ * This interface is used internally by [DefaultAgentExecutor] for executing
+ * AI operations in response to A2A protocol requests.
+ *
+ * @author Timo
+ * @since 0.1.0
+ */
+@FunctionalInterface
+public interface AgentExecutorHandler {
+    /**
+     * Execute and return response.
+     * @param requestContext the A2A RequestContext containing message, task, and context IDs
+     * @return the response result
+     */
+    Part<?> execute(RequestContext requestContext);
+
+    /**
+     * Extracts text content from A2A message.
+     */
+    static String extractTextFromMessage(Message message) {
+        var messageBuilder = new StringBuilder();
+        for (Part<?> part : message.parts()) {
+            if (part instanceof TextPart(String text)) {
+                messageBuilder.append(text);
+            }
+        }
+
+        return messageBuilder.toString().trim();
+    }
+}

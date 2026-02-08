@@ -1,0 +1,5 @@
+com.timo.ai.a2a.server.autoconfigure.SpringA2AServerAutoConfiguration
+com.timo.ai.a2a.server.autoconfigure.A2AServerAutoConfiguration
+com.timo.ai.a2a.server.autoconfigure.A2AGrpcServerAutoConfiguration
+com.timo.ai.a2a.server.autoconfigure.A2AJsonRpcServerAutoConfiguration
+com.timo.ai.a2a.server.autoconfigure.A2ARestServerAutoConfiguration
