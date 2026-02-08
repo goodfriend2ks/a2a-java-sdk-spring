@@ -41,4 +41,4 @@ jobs:
       run: ./gradlew :spring-a2a-server:publish :spring-a2a-server-autoconfigure:publish :spring-ai-a2a-tool:publish :spring-ai-a2a-server-autoconfigure:publish
       env:
         USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TOKEN: ${{ secrets.PUBLISH_TOKEN_2026 }}

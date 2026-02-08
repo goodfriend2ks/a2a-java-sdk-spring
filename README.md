@@ -77,26 +77,26 @@ There are two version of Spring Boot application examples with Spring AI (in `sp
 2. Version 1 (`v2`): Provide example that using auto-generate agent skills for AI agent via `AgentSkill` and `SkillAction` annotations.
 
 ## Release process
-   1. Create release branch
+1. Create release branch
    ```bash
-        git checkout main
-        git pull origin main
-        git checkout -b releases/vX.X.X
+    git checkout main
+    git pull origin main
+    git checkout -b releases/vX.X.X
    ```
 
-   2. Update CHANGELOG.md
+2. Update CHANGELOG.md
    ```text
     # Update version in relevant files
     # Update CHANGELOG.md
    ```
 
-   3. Commit and push release branch
+3. Commit and push release branch
    ```bash
     commit -m "Update CHANGELOG.md for release vX.X.X"
     git push origin releases/vX.X.X
    ```
 
-   4. Create and push release tag
+4. Create and push release tag
    ```bash
     git tag vX.X.X
     git push origin vX.X.X
