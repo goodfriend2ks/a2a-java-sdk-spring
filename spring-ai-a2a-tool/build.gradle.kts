@@ -32,3 +32,18 @@ dependencyManagement {
 tasks.test {
     useJUnitPlatform()
 }
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/goodfriend2ks/a2a-java-sdk-spring")
+            credentials {
+                username = findProperty("gpr.user") as String?
+                    ?: System.getenv("USERNAME_GITHUB")
+                password = findProperty("gpr.token") as String?
+                    ?: System.getenv("TOKEN_GITHUB")
+            }
+        }
+    }
+}
