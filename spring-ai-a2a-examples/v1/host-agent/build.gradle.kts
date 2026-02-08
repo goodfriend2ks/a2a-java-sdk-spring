@@ -48,6 +48,7 @@ kotlin {
     jvmToolchain(21)
 }
 
+/*
 tasks.withType<KotlinCompile> {
     compilerOptions {
         freeCompilerArgs.addAll(
@@ -81,4 +82,13 @@ tasks.test {
         System.getenv("CI") == true.toString() -> "3g"
         else -> "16g"
     }
+}
+*/
+
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+    enabled = true
+}
+
+tasks.getByName<org.gradle.api.tasks.bundling.Jar>("jar") {
+    enabled = false
 }
