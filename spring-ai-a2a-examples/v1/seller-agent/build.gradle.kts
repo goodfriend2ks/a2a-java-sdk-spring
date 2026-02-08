@@ -49,3 +49,11 @@ kotlin {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+    enabled = true
+}
+
+tasks.getByName<org.gradle.api.tasks.bundling.Jar>("jar") {
+    enabled = false
+}

@@ -31,6 +31,15 @@ subprojects {
         maven { url = uri("https://jitpack.io") }
     }
 
+    java {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
     dependencies {
         implementation("io.github.a2asdk:a2a-java-sdk-spec:${property("a2aSdkVersion")}")
         implementation("io.github.a2asdk:a2a-java-sdk-common:${property("a2aSdkVersion")}")
@@ -38,6 +47,28 @@ subprojects {
         testImplementation(platform("org.junit:junit-bom:5.10.0"))
         testImplementation("org.junit.jupiter:junit-jupiter")
         testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    }
+
+    /*
+    tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+        enabled = false
+    }
+
+    tasks.getByName<org.gradle.api.tasks.bundling.Jar>("jar") {
+        enabled = true
+    }
+    */
+    // or a more concise way
+    tasks {
+        bootJar {
+            enabled = false
+        }
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -56,6 +87,12 @@ dependencyManagement {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks {
+    bootJar {
+        enabled = false
+    }
 }
 
 publishing {
