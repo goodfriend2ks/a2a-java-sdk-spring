@@ -3,12 +3,10 @@ plugins {
     id("org.springframework.boot") version "3.5.10"
     id("io.spring.dependency-management") version "1.1.7"
 
+    id("com.vanniktech.maven.publish") version "0.36.0"
     id("maven-publish")
+    id("signing")
 }
-
-group = "com.timo.ai.a2a"
-version = "1.0-SNAPSHOT"
-description = "A2A Java SDK for Spring Framework"
 
 repositories {
     mavenCentral()
@@ -19,17 +17,28 @@ extra["springGrpcVersion"] = "0.12.0"
 // extra["a2aSdkVersion"] = "0.3.3.Final"
 extra["a2aSdkVersion"] = "1.0.0.Alpha1"
 
+extra["libraryGroupId"] = "io.github.goodfriend2ks"
+extra["libraryVersion"] = "0.1.0"
+
+group = "${property("libraryGroupId")}"
+version = "${property("libraryVersion")}"
+description = "A2A Java SDK for Spring Framework"
+
 subprojects {
     apply(plugin = "java")
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
 
     apply(plugin = "maven-publish")
+    apply(plugin = "signing")
 
     repositories {
         mavenCentral()
         maven { url = uri("https://jitpack.io") }
     }
+
+    group = "${property("libraryGroupId")}"
+    version = "${property("libraryVersion")}"
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
@@ -38,6 +47,9 @@ subprojects {
         toolchain {
             languageVersion = JavaLanguageVersion.of(21)
         }
+
+        withJavadocJar()
+        withSourcesJar()
     }
 
     dependencies {

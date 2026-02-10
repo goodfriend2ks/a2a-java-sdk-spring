@@ -3,13 +3,6 @@ plugins {
     kotlin("plugin.spring") version "2.3.0"
 }
 
-group = "com.timo.ai.a2a.example"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

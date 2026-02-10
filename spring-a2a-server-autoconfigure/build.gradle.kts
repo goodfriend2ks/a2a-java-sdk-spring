@@ -1,14 +1,10 @@
 plugins {
     id("java")
+
+    id("com.vanniktech.maven.publish")
 }
 
-group = "com.timo.ai.a2a"
-version = "1.0-SNAPSHOT"
 description = "Spring Boot auto-configuration for Spring A2A Server"
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-autoconfigure")
@@ -47,6 +43,40 @@ publishing {
                 password = findProperty("gpr.token") as String?
                     ?: System.getenv("TOKEN_GITHUB")
             }
+        }
+    }
+}
+
+mavenPublishing {
+    publishToMavenCentral()
+
+    signAllPublications()
+
+    coordinates(group.toString(), project.name, version.toString())
+
+    pom {
+        name = project.name
+        description = project.description
+        inceptionYear = "2026"
+        url = "https://github.com/goodfriend2ks/a2a-java-sdk-spring"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = "goodfriend2ks"
+                name = "Timo"
+                url = "https://github.com/goodfriend2ks"
+            }
+        }
+        scm {
+            url = "https://github.com/goodfriend2ks/a2a-java-sdk-spring/"
+            connection = "scm:git:git://github.com:goodfriend2ks/a2a-java-sdk-spring.git"
+            developerConnection = "scm:git:ssh://git@github.com:goodfriend2ks/a2a-java-sdk-spring.git"
         }
     }
 }
