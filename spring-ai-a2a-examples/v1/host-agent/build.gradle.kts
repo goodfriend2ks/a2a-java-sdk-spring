@@ -7,8 +7,7 @@ plugins {
     kotlin("plugin.spring") version "2.3.0"
 }
 
-group = "com.timo.ai.a2a.example"
-version = "1.0-SNAPSHOT"
+group = "${property("libraryGroupId")}.example"
 
 repositories {
     mavenCentral()

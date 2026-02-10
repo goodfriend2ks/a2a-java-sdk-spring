@@ -3,12 +3,7 @@ plugins {
     kotlin("plugin.spring") version "2.3.0"
 }
 
-group = "com.timo.ai.a2a.example"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
+group = "${property("libraryGroupId")}.example"
 
 dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
@@ -28,7 +23,7 @@ dependencies {
     implementation(project(":spring-a2a-server"))
     implementation(project(":spring-ai-a2a-tool"))
     implementation(project(":spring-a2a-server-autoconfigure"))
-    implementation(project(":spring-ai-a2a-server-autoconfigure"))
+    implementation(project(":spring-ai-a2a-tool-autoconfigure"))
 
     implementation("io.github.a2asdk:a2a-java-sdk-server-common:${property("a2aSdkVersion")}")
     implementation("io.github.a2asdk:a2a-java-sdk-transport-grpc:${property("a2aSdkVersion")}")

@@ -1,3 +1,3 @@
-com.timo.ai.a2a.server.grpc.GrpcTransportMetadata
-com.timo.ai.a2a.server.jsonrpc.JSONRPCTransportMetadata
-com.timo.ai.a2a.server.rest.RestTransportMetadata
+io.github.timo.a2a.server.grpc.GrpcTransportMetadata
+io.github.timo.a2a.server.jsonrpc.JSONRPCTransportMetadata
+io.github.timo.a2a.server.rest.RestTransportMetadata
