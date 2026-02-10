@@ -3,6 +3,8 @@ plugins {
     kotlin("plugin.spring") version "2.3.0"
 }
 
+group = "${property("libraryGroupId")}.example"
+
 dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
