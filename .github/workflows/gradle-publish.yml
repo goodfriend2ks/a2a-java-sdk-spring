@@ -40,5 +40,5 @@ jobs:
     - name: Publish to GitHub Packages
       run: ./gradlew :spring-a2a-server:publish :spring-a2a-server-autoconfigure:publish :spring-ai-a2a-tool:publish :spring-ai-a2a-server-autoconfigure:publish
       env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.PUBLISH_TOKEN_2026 }}
+        USERNAME_GITHUB: ${{ github.actor }}
+        TOKEN_GITHUB: ${{ secrets.PUBLISH_TOKEN_2026 }}

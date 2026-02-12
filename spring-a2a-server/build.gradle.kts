@@ -28,8 +28,51 @@ tasks.test {
     useJUnitPlatform()
 }
 
+tasks.register<Jar>("javadocJar") {
+    archiveClassifier.set("javadoc") // Sets name to <projectName>-<version>-javadoc.jar
+    from(tasks.javadoc) // Takes output from the 'javadoc' task
+}
+
+signing {
+    useGpgCmd()
+    // sign(publishing.publications["mavenJava"])
+}
 
 publishing {
+    /*
+    publications {
+        create<MavenPublication>("mavenJava") {
+            pom {
+                name = "My Library"
+                description = "A concise description of my library"
+                url = "http://www.example.com/library"
+                properties = mapOf(
+                    "myProp" to "value",
+                    "prop.with.dots" to "anotherValue"
+                )
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "johnd"
+                        name = "John Doe"
+                        email = "john.doe@example.com"
+                    }
+                }
+                scm {
+                    connection = "scm:git:git://example.com/my-library.git"
+                    developerConnection = "scm:git:ssh://example.com/my-library.git"
+                    url = "http://example.com/my-library/"
+                }
+            }
+        }
+    }
+    */
+
     repositories {
         maven {
             name = "GitHubPackages"

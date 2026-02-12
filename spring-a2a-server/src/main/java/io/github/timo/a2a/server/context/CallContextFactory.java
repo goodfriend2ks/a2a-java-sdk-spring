@@ -12,7 +12,7 @@ public interface CallContextFactory {
      *
      * @param exchange          the current request
      * @param authentication    the request security authentication
-     * @param jsonRpcMethodName the A2A method, see [io.a2a.spec.A2AMethods]
+     * @param jsonRpcMethodName the A2A method, see {@link io.a2a.spec.A2AMethods}
      * @return the server call context for current tenant, {@link TenantServerCallContext}
      *
      */

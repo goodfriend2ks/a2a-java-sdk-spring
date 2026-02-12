@@ -22,5 +22,11 @@ gradle-app.setting
 
 .idea/
 .DS_Store
+
 .env
 .env.local
+
+gradle.properties
+.gnupg/
+
+LOCAL_TUTORIAL.md

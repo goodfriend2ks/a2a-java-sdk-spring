@@ -20,8 +20,8 @@ The key to enabling A2A in your Java application is to correctly package it. Her
     ```bash
         {
             dependencies {
-                implementation("com.timo.ai.a2a:spring-a2a-server:${property("a2aSdkSpringVersion")}")
-                implementation("com.timo.ai.a2a:spring-a2a-server-autoconfigure:${property("a2aSdkSpringVersion")}")
+                implementation("io.github.goodfriend2ks:spring-a2a-server:${property("a2aSdkSpringVersion")}")
+                implementation("io.github.goodfriend2ks:spring-a2a-server-autoconfigure:${property("a2aSdkSpringVersion")}")
             }
         }
     ```
@@ -30,8 +30,8 @@ The key to enabling A2A in your Java application is to correctly package it. Her
     ```bash
         {
             dependencies {
-                implementation("com.timo.ai.a2a:spring-ai-a2a-tool:${property("a2aSdkSpringVersion")}")
-                implementation("com.timo.ai.a2a:spring-ai-a2a-server-autoconfigure:${property("a2aSdkSpringVersion")}")
+                implementation("io.github.goodfriend2ks:spring-ai-a2a-tool:${property("a2aSdkSpringVersion")}")
+                implementation("io.github.goodfriend2ks:spring-ai-a2a-server-autoconfigure:${property("a2aSdkSpringVersion")}")
             }
         }
     ```
@@ -50,6 +50,7 @@ The key to enabling A2A in your Java application is to correctly package it. Her
     2.1.  **Implementation for `AgentCard`:**
        * **Option 1:** Implement your own skills for your agent. You can find more information about them in the [A2A Java SDK documentation](https://github.com/a2aproject/a2a-java?tab=readme-ov-file#2-add-a-class-that-creates-an-a2a-agent-card). See examples in `spring-ai-a2a-examples/v1`
        * **Option 2:** Using Spring Boot autoconfigure for `Spring AI` supported Agent Skills: See examples in `spring-ai-a2a-examples/v2`.
+    
     2.2.  **Implementations for `AgentExecutor`:**
        * **Option 1:** Implement your own `AgentExecutor`. You can find more information about them in the [A2A Java SDK documentation](https://github.com/a2aproject/a2a-java?tab=readme-ov-file#3-add-a-class-that-creates-an-a2a-agent-executor).
        * **Option 2:** Use default `AgentExecutor` implementation and implement `AgentExecutorHandler` to provide your agent business logic.
@@ -72,33 +73,7 @@ The key to enabling A2A in your Java application is to correctly package it. Her
     ```
 
 ## Examples
-There are two version of Spring Boot application examples with Spring AI (in `spring-ai-a2a-examples` folder):
-1. Version 1 (`v1`): Provide example that implement own skills for AI agent
-2. Version 1 (`v2`): Provide example that using auto-generate agent skills for AI agent via `AgentSkill` and `SkillAction` annotations.
 
-## Release process
-1. Create release branch
-   ```bash
-    git checkout main
-    git pull origin main
-    git checkout -b releases/vX.X.X
-   ```
-
-2. Update CHANGELOG.md
-   ```text
-    # Update version in relevant files
-    # Update CHANGELOG.md
-   ```
-
-3. Commit and push release branch
-   ```bash
-    commit -m "Update CHANGELOG.md for release vX.X.X"
-    git push origin releases/vX.X.X
-   ```
-
-4. Create and push release tag
-   ```bash
-    git tag vX.X.X
-    git push origin vX.X.X
-   ```
-
+There are two version of Spring Boot application examples with Spring AI (in [spring-ai-a2a-examples](https://github.com/goodfriend2ks/a2a-java-sdk-spring/tree/main/spring-ai-a2a-examples) folder):
+1. [Version 1](https://github.com/goodfriend2ks/a2a-java-sdk-spring/tree/main/spring-ai-a2a-examples/v1): Provide example that implement own skills for AI agent
+2. [Version 2](https://github.com/goodfriend2ks/a2a-java-sdk-spring/tree/main/spring-ai-a2a-examples/v2): Provide example that using auto-generate agent skills for AI agent via `AgentSkill` and `SkillAction` annotations.
