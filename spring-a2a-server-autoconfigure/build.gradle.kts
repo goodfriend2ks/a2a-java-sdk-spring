@@ -32,6 +32,16 @@ tasks.test {
     useJUnitPlatform()
 }
 
+tasks.register<Jar>("javadocJar") {
+    archiveClassifier.set("javadoc") // Sets name to <projectName>-<version>-javadoc.jar
+    from(tasks.javadoc) // Takes output from the 'javadoc' task
+}
+
+signing {
+    useGpgCmd()
+    // sign(publishing.publications["mavenJava"])
+}
+
 publishing {
     repositories {
         maven {

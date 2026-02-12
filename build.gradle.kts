@@ -18,7 +18,7 @@ extra["springGrpcVersion"] = "0.12.0"
 extra["a2aSdkVersion"] = "1.0.0.Alpha1"
 
 extra["libraryGroupId"] = "io.github.goodfriend2ks"
-extra["libraryVersion"] = "0.1.0"
+extra["libraryVersion"] = "1.0.0.Alpha1"
 
 group = "${property("libraryGroupId")}"
 version = "${property("libraryVersion")}"
@@ -47,9 +47,6 @@ subprojects {
         toolchain {
             languageVersion = JavaLanguageVersion.of(21)
         }
-
-        withJavadocJar()
-        withSourcesJar()
     }
 
     dependencies {
@@ -109,16 +106,6 @@ tasks {
 
 publishing {
     repositories {
-        /**
-        maven {
-            name = "OSSRH"
-            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
-            credentials {
-                username = System.getenv("MAVEN_USERNAME")
-                password = System.getenv("MAVEN_PASSWORD")
-            }
-        }
-        */
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/goodfriend2ks/a2a-java-sdk-spring")

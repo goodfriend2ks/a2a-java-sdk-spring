@@ -27,6 +27,9 @@ public class AgentCardController {
 
     private final AgentCard agentCard;
 
+    /**
+     * Constructor with automatically Spring binding beans
+     * */
     public AgentCardController(AgentCard agentCard) {
         this.agentCard = agentCard;
     }

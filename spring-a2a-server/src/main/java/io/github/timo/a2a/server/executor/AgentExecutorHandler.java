@@ -8,7 +8,7 @@ import io.a2a.spec.TextPart;
 /**
  * Executes AI operations with A2A RequestContext for A2A agents.
  * <p>
- * This interface is used internally by [DefaultAgentExecutor] for executing
+ * This interface is used internally by {@link DefaultAgentExecutor} for executing
  * AI operations in response to A2A protocol requests.
  *
  * @author Timo
@@ -24,7 +24,9 @@ public interface AgentExecutorHandler {
     Part<?> execute(RequestContext requestContext);
 
     /**
-     * Extracts text content from A2A message.
+     * The util function to extract text content from A2A message.
+     * @param message the A2A messages
+     * @return the content from A2A text message ({@link  TextPart})
      */
     static String extractTextFromMessage(Message message) {
         var messageBuilder = new StringBuilder();
