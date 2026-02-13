@@ -1,0 +1,55 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /host
+
+spring:
+  application:
+    name: host-agent
+
+  webflux:
+    base-path: /host
+
+  ai:
+    azure:
+      openai:
+        api-key: "${AZURE_OPENAI_API_KEY:<Azure_OpenAI_API_Key>}"
+        endpoint: "${AZURE_OPENAI_ENDPOINT:<Azure_OpenAI_Endpoint>}"
+        chat:
+          options:
+            # model: gpt-5
+            # deployment-name: gpt-5
+            # temperature: 1.0
+
+            # model: gpt-4o
+            # deployment-name: gpt-4o
+
+            model: gpt-35-turbo
+            deployment-name: gpt-35-turbo
+
+            # model: gpt-5-mini
+            # deployment-name: gpt-5-mini
+
+            # temperature: 0.75
+        embedding:
+          options:
+            model: text-embedding-ada-002   # 1536-dimensional vectors.
+            deployment-name: text-embedding-ada-002
+    retry:
+      maxAttempts: 5
+      backoff:
+        initialInterval: 1s
+
+a2a:
+  remoteAgents:
+    order:
+      endpoint: http://localhost:8081/order/
+      healthCheckUrl: http://localhost:8081/order/healthz
+
+    seller:
+      endpoint: http://localhost:8082/seller
+
+#io:
+#  grpc:
+#    ManagedChannel:
+#      enableAllocationTracking: true
