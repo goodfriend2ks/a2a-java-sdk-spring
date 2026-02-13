@@ -34,7 +34,7 @@ jobs:
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
     - name: Build with Gradle Wrapper
-      run: ./gradlew :spring-a2a-server:build :spring-a2a-server-autoconfigure:build :spring-ai-a2a-tool:build :spring-ai-a2a-tool-autoconfigure:build
+      run: ./gradlew :spring-a2a-server:build :spring-a2a-server-autoconfigure:build :spring-ai-a2a-tool:build :spring-ai-a2a-server-autoconfigure:build
       # run: ./gradlew build -x :spring-ai-a2a-examples:v1:host-agent:build -x :spring-ai-a2a-examples:v1:order-agent:build -x :spring-ai-a2a-examples:v1:seller-agent:build -x :spring-ai-a2a-examples:v2:order-agent:build
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).

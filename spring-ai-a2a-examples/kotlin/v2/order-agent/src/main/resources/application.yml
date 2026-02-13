@@ -1,0 +1,98 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /order
+
+spring:
+  application:
+    name: order-agent
+
+  webflux:
+    base-path: /order
+
+  ai:
+    azure:
+      openai:
+        api-key: "${AZURE_OPENAI_API_KEY:<Azure_OpenAI_API_Key>}"
+        endpoint: "${AZURE_OPENAI_ENDPOINT:<Azure_OpenAI_Endpoint>}"
+        chat:
+          options:
+            # model: gpt-5
+            # deployment-name: gpt-5
+            # temperature: 1.0
+
+            # model: gpt-4o
+            # deployment-name: gpt-4o
+
+            model: gpt-35-turbo
+            deployment-name: gpt-35-turbo
+
+            # model: gpt-5-mini
+            # deployment-name: gpt-5-mini
+
+            # temperature: 0.75
+        embedding:
+          options:
+            model: text-embedding-ada-002   # 1536-dimensional vectors.
+            deployment-name: text-embedding-ada-002
+    retry:
+      maxAttempts: 5
+      backoff:
+        initialInterval: 1s
+
+    a2a:
+      server:
+        enabled: true
+        host: "*"
+        ssl:
+          enabled: false
+        grpc:
+          enabled: true
+        jsonrpc:
+          enabled: true
+        rest:
+          enabled: true
+      agent:
+        skill:
+          enabled: true
+          rest:
+            enabled: true
+
+  grpc:
+    client:
+      enabled: false
+
+    server:
+      enabled: true
+      host: "*"
+      port: 9091
+      reflection:
+        enabled: false
+      keep-alive:
+        max-age: 86400s
+        time: 2h
+        timeout: 20s
+        max-idle: 86400s
+        permit-time: 5m
+        permit-without-calls: true
+        max-age-grace: 2h
+      max-inbound-message-size: 4194304
+      max-inbound-metadata-size: 8192
+
+management:
+  health:
+    grpc:
+      enabled: true
+
+a2a:
+  blocking:
+    agent:
+      timeout:
+        seconds: 30
+    consumption:
+      timeout:
+        seconds: 5
+  executor:
+    corePoolSize: 2
+    maxPoolSize: 5
+    keepAliveSeconds: 60

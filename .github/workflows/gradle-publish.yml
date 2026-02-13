@@ -33,12 +33,12 @@ jobs:
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
     - name: Build with Gradle
-      run: ./gradlew :spring-a2a-server:build :spring-a2a-server-autoconfigure:build :spring-ai-a2a-tool:build :spring-ai-a2a-tool-autoconfigure:build
+      run: ./gradlew :spring-a2a-server:build :spring-a2a-server-autoconfigure:build :spring-ai-a2a-tool:build :spring-ai-a2a-server-autoconfigure:build
 
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
     - name: Publish to GitHub Packages
-      run: ./gradlew :spring-a2a-server:publish :spring-a2a-server-autoconfigure:publish :spring-ai-a2a-tool:publish :spring-ai-a2a-tool-autoconfigure:publish
+      run: ./gradlew :spring-a2a-server:publish :spring-a2a-server-autoconfigure:publish :spring-ai-a2a-tool:publish :spring-ai-a2a-server-autoconfigure:publish
       env:
         USERNAME_GITHUB: ${{ github.actor }}
         TOKEN_GITHUB: ${{ secrets.PUBLISH_TOKEN_2026 }}
